@@ -48,22 +48,39 @@ const Home = () => {
 
                         visibleProduct.map((item, index) => (
 
-                            <div key={index} className="card bg-base-100 w-96 mt-2 shadow-lg">
-                                <Link to={`/view/${item.id}`}>
-                                    <img
-                                        src={item?.thumbnail}
-                                        alt="Shoes" />
-                                </Link>
-                                <div className="p-4">
-                                    <h2 className="card-title">{item.title}</h2>
-                                    <p>{item.description}</p>
-                                    <p>$ {item.price}</p>
-                                    <div className="flex justify-between">
-                                        <button onClick={() => dispatch(addWish(item))} className="shadow p-3 bg-slate-200 ">wish</button>
-                                        <button onClick={() => dispatch(addToCart(item))} className="shadow p-3 bg-slate-200 ">cart</button>
-                                    </div>
-                                </div>
+                            <div
+                            key={index}
+                            className="card w-80 m-4 rounded-2xl bg-white/10 backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl border border-white/20"
+                          >
+                            <Link to={`/view/${item.id}`} className="relative group">
+                              <img
+                                src={item?.thumbnail}
+                                alt={item?.title}
+                                className="w-full h-52 object-cover rounded-t-2xl"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl" />
+                            </Link>
+                            <div className="p-4 text-white">
+                              <h2 className="text-xl font-bold mb-1">{item.title}</h2>
+                              <p className="text-sm text-gray-800 mb-2 line-clamp-2">{item.description}</p>
+                              <p className="text-lg font-semibold text-yellow-300 mb-4">$ {item.price}</p>
+                              <div className="flex justify-between">
+                                <button
+                                  onClick={() => dispatch(addWish(item))}
+                                  className="px-4 py-2 rounded-full bg-pink-500 hover:bg-pink-600 text-white transition-all duration-200 hover:scale-105 shadow"
+                                >
+                                  ❤️ Wish
+                                </button>
+                                <button
+                                  onClick={() => dispatch(addToCart(item))}
+                                  className="px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white transition-all duration-200 hover:scale-105 shadow"
+                                >
+                                  🛒 Cart
+                                </button>
+                              </div>
                             </div>
+                          </div>
+                          
                         ))
 
                 }
