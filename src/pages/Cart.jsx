@@ -46,11 +46,11 @@ const Cart = () => {
                         <img src={item.thumbnail} className="h-20 w-20" alt="" />
                       </td>
                       <td className="px-6 py-4 border-b">
-                        <span className="shadow px-2 py-1" onClick={()=>dispatch(decreaseQuantiy(item.id))}>-</span> <input type="text" value={item.quantity} readOnly className="w-10 text-center outline-1" name="" id="" /><span className="shadow px-2 py-1" onClick={()=>dispatch(increaseQuantiy(item.id))}>+</span>
+                        <span className="shadow px-2 py-1" onClick={()=>dispatch(decreaseQuantiy(item.id))}>-</span> <input type="text" value={item.quantity} readOnly className="w-10 outline-none text-center outline-1" name="" id="" /><span className="shadow px-2 py-1" onClick={()=>dispatch(increaseQuantiy(item.id))}>+</span>
                       </td>
                       <td className="px-6 py-4 border-b">$ {item.price}</td>
                       <td className="px-6 py-4 border-b">
-                        <FiTrash size={20} onClick={()=>dispatch(removeCart(item.id))} className="text-red-600 cursor-pointer" />
+                        <FiTrash size={20} onClick={()=>dispatch(removeCart(item))} className="text-red-600 cursor-pointer" />
                       </td>
                     </tr>
                   ))
@@ -64,12 +64,12 @@ const Cart = () => {
       }
 
       {/* Right Column: Text Content */}
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg h-fit shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
         <p className="text-gray-700 mb-2">
           total price :{cart.reduce((prev,item)=>prev+(item.quantity*item.price),0)}
         </p>
-        <button className=" bg-slate-600 w-full rounded py-2 px-3 text-white font-extrabold" onClick={handleCheckout}>Check out</button>
+        <button className=" bg-slate-600 w-full rounded py-2 px-3 text-white font-extrabold " onClick={handleCheckout}>Check out</button>
 
       </div>
     </div>

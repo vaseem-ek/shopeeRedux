@@ -6,12 +6,14 @@ import View from './pages/View'
 import Cart from './pages/Cart'
 import Wish from './pages/Wish'
 import Header from './components/Header'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
+      <Toaster/>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>} />

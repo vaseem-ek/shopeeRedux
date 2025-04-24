@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addToCart } from '../redux/slices/cartSlice';
+import { Link } from 'react-router-dom';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 
 function View() {
   const { id } = useParams();
@@ -34,11 +36,13 @@ function View() {
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center p-6 gap-8 max-w-6xl mx-auto">
-      <div className="w-full md:w-1/2 flex justify-center">
+      <div className="w-full md:w-1/2 flex justify-center relative">
+      <Link className='absolute left-2 top-2' to={'/'}><IoMdArrowRoundBack size={30} />
+      </Link>
         <img
           src={item.thumbnail}
           alt={item.title}
-          className="rounded-xl shadow-lg w-full max-w-md object-cover"
+          className="rounded-xl shadow-lg w-full max-w-md object-cover "
         />
       </div>
 

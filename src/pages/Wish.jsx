@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeWish } from '../redux/slices/wishSlice'
-import { removeCart } from '../redux/slices/cartSlice'
+import { addToCart, removeCart } from '../redux/slices/cartSlice'
 import { FaHeartBroken, FaShoppingCart } from 'react-icons/fa'
 
 function Wish() {
@@ -38,7 +38,7 @@ function Wish() {
                                         ❤️ Wish
                                     </button>
                                     <button
-                                        onClick={() => dispatch(removeCart(item))}
+                                        onClick={() => dispatch(addToCart(item))}
                                         className="px-4 py-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white transition-all duration-200 hover:scale-105 shadow"
                                     >
                                         🛒 Cart
